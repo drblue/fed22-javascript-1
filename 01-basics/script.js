@@ -58,6 +58,8 @@ let msg = 'His name is "' + myName + '" and he knows JavaScript';
 
 console.log(msg);
 */
+
+/*
 let myName = "Johanh";
 console.log("My name is:", myName);
 
@@ -83,14 +85,18 @@ console.log("Tiny name:", myName.substr(1, 2) ); "oh"
 
 console.log("Does name contain 'a'?", myName.includes('a') ); // true
 console.log("Does name contain 'e'?", myName.includes('e') ); // false
+*/
 
 let email = "johan.nordstrom@elevera.org";
 email = "jn@thehiveresistance.com";
 email = "johan.nordstrom@mil.gov.edu.com";
 email = "johan.nordstrom@bbc.co.uk";
 
+console.log("Email is:", email);
+
 // Skriv ut positionen för den sista punkten i variabeln `email`, oavsett hur lång/kort `email` är
-console.log("Last dot is at position:");
+let dotPosition = email.lastIndexOf('.');
+console.log("Last dot is at position:", dotPosition );
 
 // Skriv ut topp-domänen från e-postadressen (alltså det som står i `email` efter den sista punkten)
-console.log("The top domain is:");
+console.log("The top domain is:", email.slice(dotPosition) );
