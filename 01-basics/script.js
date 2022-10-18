@@ -87,6 +87,10 @@ console.log("Does name contain 'e'?", myName.includes('e') ); // false
 let email = "johan.nordstrom@elevera.org";
 email = "jn@thehiveresistance.com";
 email = "johan.nordstrom@mil.gov.edu.com";
+email = "johan.nordstrom@bbc.co.uk";
 
 // Skriv ut positionen för den sista punkten i variabeln `email`, oavsett hur lång/kort `email` är
 console.log("Last dot is at position:");
+
+// Skriv ut topp-domänen från e-postadressen (alltså det som står i `email` efter den sista punkten)
+console.log("The top domain is:");
