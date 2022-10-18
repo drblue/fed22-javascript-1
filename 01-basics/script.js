@@ -83,3 +83,10 @@ console.log("Tiny name:", myName.substr(1, 2) ); "oh"
 
 console.log("Does name contain 'a'?", myName.includes('a') ); // true
 console.log("Does name contain 'e'?", myName.includes('e') ); // false
+
+let email = "johan.nordstrom@elevera.org";
+email = "jn@thehiveresistance.com";
+email = "johan.nordstrom@mil.gov.edu.com";
+
+// Skriv ut positionen för den sista punkten i variabeln `email`, oavsett hur lång/kort `email` är
+console.log("Last dot is at position:");
