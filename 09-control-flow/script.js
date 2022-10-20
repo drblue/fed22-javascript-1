@@ -14,6 +14,7 @@ let age = 75;
  * || = OR (at least one has to be true)
  */
 
+/*
 //   30 >= 18     &&  30 <= 65
 //     true       &&   true
 //               true
@@ -43,3 +44,19 @@ if (age >= minAge && age <= maxAge) {
 } else {
 	console.log('Too old! 👵🏻');
 }
+*/
+
+/**
+ * for-loop
+ */
+console.log("Yey loop!");
+
+const maxLoops = 10;
+
+for (let i = 0; i < maxLoops; i++) {
+	console.log("We're looping 🥵, at loop number " + i)
+}
+
+// nu är vi snurriga av allt loopande
+console.log('🤢');
+
