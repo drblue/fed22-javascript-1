@@ -49,6 +49,7 @@ if (age >= minAge && age <= maxAge) {
 /**
  * for-loop
  */
+/*
 console.log("Yey loop!");
 
 const maxLoops = 10;
@@ -59,4 +60,19 @@ for (let i = 0; i < maxLoops; i++) {
 
 // nu är vi snurriga av allt loopande
 console.log('🤢');
+*/
 
+let students = [
+	"Deadpool",		// 0
+	"Black Widow",	// 1
+	"Iron Man",		// 2
+	"Spider-Man",	// 3
+	"Wanda",		// 4
+	"Thanos",		// 5
+];
+
+console.log("Class of 2022:");
+for (let i = 0; i < students.length; i++) {
+	console.log(`Student at index ${i} is: ${students[i]}`);
+}
+console.log(`Number of students: ${students.length}`);
