@@ -37,6 +37,7 @@ for (let i = 0; i < 5; i++) {
 
 /**
  * while-loop
+ * runs 0 or more times
  */
 let i = 0;
 while (i < 5) {
@@ -50,6 +51,7 @@ console.log("Finished looping, i is:", i);
 
 /**
  * do while-loop
+ * runs *at least* 1 time
  */
 i = 5
 do {
