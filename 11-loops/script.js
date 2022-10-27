@@ -29,12 +29,15 @@ console.log("The sum of all numbers is:", sum);
 */
 
 /**
- * while-loop
+ * for-loop
  */
 for (let i = 0; i < 5; i++) {
 	// do stuff
 }
 
+/**
+ * while-loop
+ */
 let i = 0;
 while (i < 5) {
 	// do stuff
@@ -45,6 +48,9 @@ while (i < 5) {
 // finished looping
 console.log("Finished looping, i is:", i);
 
+/**
+ * do while-loop
+ */
 i = 5
 do {
 	// do stuff
