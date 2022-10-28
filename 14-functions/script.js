@@ -47,6 +47,11 @@ const calcBoxArea = function(width, height) {
 	return area;
 }
 
+// Arrow Function
+const calcCircleArea = (radius) => {
+	return 3.14159 * radius ** 2;
+}
+
 /*
 const boxCircumference = calcBoxCircumference(20, 40);
 console.log(boxCircumference);
