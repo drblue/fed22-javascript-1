@@ -24,6 +24,7 @@ greetUser();
 /**
  * Function Expression
  */
+/*
 const greetUser = function(name = "anonymous", time = "day") {
 	console.log(`Good ${time}, ${name}`);
 }
@@ -35,3 +36,30 @@ greetUser("Pelle", "evening");
 greetUser();
 
 console.log("I AM AFTER");
+*/
+
+const calcBoxCircumference = function(width, height) {
+	return width * 2 + height * 2;
+}
+
+const calcBoxArea = function(width, height) {
+	const area = width * height;
+	return area;
+}
+
+/*
+const boxCircumference = calcBoxCircumference(20, 40);
+console.log(boxCircumference);
+
+const boxCircumference2 = calcBoxCircumference(60, 120);
+console.log(boxCircumference2);
+*/
+
+const w = 20;
+const h = 40;
+const ci = calcBoxCircumference(w, h);
+if (ci > 100) {
+	console.log("Thats a big box");
+} else {
+	console.log("smol box");
+}
