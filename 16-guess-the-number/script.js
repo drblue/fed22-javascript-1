@@ -13,7 +13,7 @@
  * ska de få gissa igen efter detta.
  *
  * STEG 2
- * Slumpa talet som användaren ska gissa, så att de inte gissar rätt varje gång.
+ * ✅ Slumpa talet som användaren ska gissa, så att de inte gissar rätt varje gång.
  *
  * STEG 3
  * Spara ner hur många gissningar som krävdes. Visa antalet gissningar när
@@ -33,8 +33,10 @@ const getRandomNumber = (max = 10) => {
 	return Math.ceil( Math.random() * max );
 }
 
-let numberToGuess = 5;
+let numberToGuess = getRandomNumber();
 let continueGame = true;
+
+console.log("numberToGuess:", numberToGuess);
 
 while (continueGame) {
 	// Ask user for guess
