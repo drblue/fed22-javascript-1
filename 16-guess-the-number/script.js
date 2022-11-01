@@ -34,6 +34,7 @@ const getRandomNumber = (max = 10) => {
 }
 
 let exitGame = false;
+let highscore = null;
 
 while (exitGame === false) {     // while (!exitGame) {
 	let numberToGuess = getRandomNumber();
@@ -51,6 +52,20 @@ while (exitGame === false) {     // while (!exitGame) {
 			// Guess was correct
 			// Increase number of guesses made
 			tries++;
+
+			// we can haz highscore?
+			if (highscore) {
+				// new highscore?
+				if (tries < highscore) {
+					console.log(`YAY NEW HIGHSCORE!`);
+					highscore = tries;
+				} else {
+					console.log(`Sorry, no new highscore. Your current highscore is ${highscore}.`);
+				}
+			} else {
+				highscore = tries;
+			}
+
 			console.log("Guess was correct! 🥳");
 			alert(`Great success! You guessed the correct answer in ${tries} tries.`);
 			continueGame = false;
