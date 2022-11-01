@@ -9,7 +9,7 @@
  * ✅ Om användaren skriver in talet 0 så ska spelet avslutas.
  *
  * STEG 1.5
- * Berätta för användaren om gissningen är för låg eller för hög. Naturligtvis
+ * ✅ Berätta för användaren om gissningen är för låg eller för hög. Naturligtvis
  * ska de få gissa igen efter detta.
  *
  * STEG 2
@@ -52,6 +52,18 @@ while (continueGame) {
 		console.log("Guess was 0, quitting game");
 		alert("Y U GIVE UP?!");
 		continueGame = false;
+
+	} else if (guess > numberToGuess) {
+		console.log("Guess was too high");
+		alert("Guess was too high");
+
+	} else if (guess < numberToGuess) {
+		console.log("Guess was lower than GlocalNet");
+		alert("Guess was too low");
+
+	} else {
+		console.log("That's not a number");
+		alert("That's not a number");
 
 	}
 }
