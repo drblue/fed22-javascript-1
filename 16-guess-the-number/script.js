@@ -16,7 +16,7 @@
  * ✅ Slumpa talet som användaren ska gissa, så att de inte gissar rätt varje gång.
  *
  * STEG 3
- * Spara ner hur många gissningar som krävdes. Visa antalet gissningar när
+ * ✅ Spara ner hur många gissningar som krävdes. Visa antalet gissningar när
  * användaren gissat rätt.
  *
  * STEG 4
@@ -35,6 +35,7 @@ const getRandomNumber = (max = 10) => {
 
 let numberToGuess = getRandomNumber();
 let continueGame = true;
+let tries = 0;
 
 console.log("numberToGuess:", numberToGuess);
 
@@ -45,25 +46,34 @@ while (continueGame) {
 
 	if (guess === numberToGuess) {
 		// Guess was correct
+		// Increase number of guesses made
+		tries++;
 		console.log("Guess was correct! 🥳");
-		alert("Great success!");
+		alert(`Great success! You guessed the correct answer in ${tries} tries.`);
 		continueGame = false;
 
 	} else if (guess === 0) {
 		// User rage-quit
 		console.log("Guess was 0, quitting game");
-		alert("Y U GIVE UP?!");
+		alert(`Y U GIVE UP AFTER ONLY ${tries} TRIES?!`);
 		continueGame = false;
 
 	} else if (guess > numberToGuess) {
+		// Guess was too high
+		// Increase number of guesses made
+		tries++;
 		console.log("Guess was too high");
 		alert("Guess was too high");
 
 	} else if (guess < numberToGuess) {
+		// Guess was too low
+		// Increase number of guesses made
+		tries++;
 		console.log("Guess was lower than GlocalNet");
 		alert("Guess was too low");
 
 	} else {
+		// Guess was not valid
 		console.log("That's not a number");
 		alert("That's not a number");
 
