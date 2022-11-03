@@ -11,7 +11,10 @@ const barksby = {
 		name: "Mr Beans",
 		age: 57
 	},
-	sound: "WOOOFF!"
+	sound: "WOOOFF!",
+	speak: function() {
+		console.log(`Hello this is ${barksby.name}`);
+	}
 }
 
 const meowJr = {
@@ -19,8 +22,11 @@ const meowJr = {
 	species: "Kitten",
 	age: 1,
 	name: "Meow Jr",
-	sound: "meooow!"
+	sound: "meooow!",
+	speak: () => {
+		console.log("Hello this is cat");
+	}
 }
 
-console.log(barksby.hobbies.join(", "));
-console.log(`Barksby's owner is ${barksby.owner.name}`);
+// console.log(barksby.hobbies.join(", "));
+// console.log(`Barksby's owner is ${barksby.owner.name}`);
