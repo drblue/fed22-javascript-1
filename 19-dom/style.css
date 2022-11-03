@@ -1,0 +1,11 @@
+p.error {
+	color: green;
+}
+
+div.error {
+	color: red;
+}
+
+span.secret {
+	display: none;
+}
