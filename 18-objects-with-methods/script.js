@@ -29,13 +29,16 @@ const meowJr = {
 	age: 1,
 	name: "Meow Jr",
 	sound: "meooow!",
+	meowCounter: 0,
 	// speak: speakFn,
-	speak: () => { // don't use arrow functions in methods on objects as the `this` context object isn't updated to reflect the object it is run on
-		console.log(`Hello this is ${this.name}, and my age is ${this.age}`);
-		// console.log("this:", this);
+	// don't use arrow functions in methods on objects as the `this` context object isn't updated to reflect the object it is run on
+	speak: function() { // same as writing "speak() {}"
+		console.log(this.sound);
+		this.meowCounter++;
+		console.log(`Meowed times today: ${this.meowCounter}`);
 	}
 }
 
 // console.log(barksby.hobbies.join(", "));
 // console.log(`Barksby's owner is ${barksby.owner.name}`);
-console.log("this outside of an object:", this);
+// console.log("this outside of an object:", this);
