@@ -27,3 +27,7 @@ console.log(firstErrorParagraph.innerHTML);
 
 // Log the first error-paragraphs text
 console.log(firstErrorParagraph.innerText);
+
+// We can also change the content of an element
+firstParagraph.innerText = "Look ma, my first paragraph!";
+firstParagraph.innerText += " Oh I forgot this!";
