@@ -34,6 +34,7 @@ firstParagraph.innerText = "Look ma, my first paragraph!";
 firstParagraph.innerText += " Oh I forgot this!";
 */
 
+/*
 const alertEl = document.querySelector('.alert');
 console.log('alertEl:', alertEl);
 
@@ -49,3 +50,29 @@ const liEls = Array.from(linkListEl.children);  // now we can use `.forEach()`
 
 // OR, we can use querySelector and querySelectorAll on the linkListEl
 const liEls2 = linkListEl.querySelectorAll('li');
+*/
+
+/*
+// get the first link in the document
+const firstLinkEl = document.querySelector('a');
+console.log('firstLinkEl:', firstLinkEl);
+
+// get the 'href' attribute on the first link
+console.log('firstLinkEl href:', firstLinkEl.getAttribute('href'));
+
+// change the 'href' attribute on the first link
+firstLinkEl.setAttribute('href', 'https://www.bing.com');
+*/
+
+const alertEl = document.querySelector('.alert');
+console.log('alertEl:', alertEl);
+
+// change content of alert-element, does NOT interpret HTML-tags
+alertEl.innerText = "I <strong>LOVE</strong> JavaScript! ";
+
+// change content of alert-element, DOES interpret HTML-tags
+alertEl.innerHTML = "I <strong>LOVE</strong> JavaScript! ";
+
+// append to existing content
+alertEl.innerHTML += "I <strong>LOVE</strong> JavaScript! ";
+alertEl.innerHTML += "I <strong>LOVE</strong> JavaScript! ";
