@@ -13,9 +13,15 @@ Hämta ut den branch du är intresserad av.
 ### Exempel
 
 ```zsh
-git pull
+git fetch
 git checkout lesson-1
 cd 01-intro
+```
+
+#### Hämta nya commits i samma branch
+
+```zsh
+git pull
 ```
 
 osv.
