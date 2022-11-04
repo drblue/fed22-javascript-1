@@ -26,7 +26,7 @@ const pets = [
 		}
 	},
 	{
-		hobbies: "Be cute",
+		hobbies: ["Be cute"],
 		species: "Kitten",
 		age: 1,
 		name: "Meow Jr",
