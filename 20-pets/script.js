@@ -37,5 +37,39 @@ const pets = [
 			console.log(this.sound);
 			console.log(`Meowed times today: ${this.meowCounter}`);
 		}
-	}
+	},
+	// {
+	// 	hobbies: ["Be cute"],
+	// 	species: "Old kitten",
+	// 	age: 9,
+	// 	name: "Meow Sr",
+	// 	sound: "meooow!",
+	// 	meowCounter: 0,
+	// 	speak() { // same as writing "speak: function() {}"
+	// 		this.meowCounter++;
+	// 		console.log(this.sound);
+	// 		console.log(`Meowed times today: ${this.meowCounter}`);
+	// 	}
+	// }
 ];
+
+// Get a reference to the `<ul>` element in the DOM
+const petslistEl = document.querySelector('#petslist');
+
+// Loop over pets and pass each pet to the function
+pets.forEach( (pet) => {
+	// create a string that will contain the info
+	let info;
+
+	// does pet have an owner?
+	if (pet.owner) {
+		// yay pet had an owner
+		info = `<li>${pet.name} is a ${pet.species} of ${pet.age} year(s) old. His owner is ${pet.owner.name}</li>`;
+	} else {
+		// pet had no owner :(
+		info = `<li>${pet.name} is a ${pet.species} of ${pet.age} year(s) old. Please adopt him!</li>`;
+	}
+
+	// append the string to the `<ul>`'s innerHTML
+	petslistEl.innerHTML += info;
+} );
