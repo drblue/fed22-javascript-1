@@ -57,3 +57,13 @@ document.querySelector('body').addEventListener('click', (e) => {
 	console.log("hello i am body, someone clicked me or my children");
 });
 */
+
+// add click-event listener to the link
+document.querySelector('a').addEventListener('click', e => {
+	// this will be executed whenever someone clicks on the link
+
+	// prevent user from ever leaving our site 😈
+	e.preventDefault();
+
+	alert("You can check in but you can never leave 😈");
+});
