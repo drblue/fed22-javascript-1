@@ -16,3 +16,16 @@ btnAdd.addEventListener('click', () => {
 
 	document.querySelector('ul').innerHTML += `<li>list item ${liCount + 1}</li>`;
 });
+
+// för varje `li`
+document.querySelectorAll('li').forEach(liEl => {
+
+	// lägg till en click-eventlyssnare som loggar något till konsolen
+	liEl.addEventListener('click', (e) => {
+		console.log("yey someone clicked on me", e.target);
+
+		// if target has class `completed`, remove it
+		// if target DOES NOT have class `completed`, add it
+		e.target.classList.toggle("completed");
+	});
+});
