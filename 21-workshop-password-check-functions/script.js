@@ -54,21 +54,16 @@ let password = prompt("Please enter password to check:");    // "p@$$word"
 
 console.log(`🕵🏻 Checking password '${password}'`);
 
-// call `countSpecialChars()`, pass in the value in `password` and save the return value in `nbrOfSpecialChars`
-const nbrOfSpecialChars = countSpecialChars(password);  // countSpecialChars("p@$$word")    =>    2
-
-console.log("Loop is done, found:", nbrOfSpecialChars);
-
 if (password.length >= 16) {
 	console.log("- ✅ Great! That's a long password!");
 
 } else if (password.length >= 12 && password.includes('-')) {
 	console.log("- ✅ Great! That's a pretty good password!");
 
-} else if (password.length >= 8 && nbrOfSpecialChars) {
+} else if (password.length >= 8 && countSpecialChars(password)) {
 	console.log("- ✅ Great! Such password, much secure, very hard to crack!");
 
-} else if (password.length >= 6 && nbrOfSpecialChars >= 2) {
+} else if (password.length >= 6 && countSpecialChars(password) >= 2) {
 	console.log("- ✅ Great! Such password, much secure, VERY hard to crack!");
 
 } else {
