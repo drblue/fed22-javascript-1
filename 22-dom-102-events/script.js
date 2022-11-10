@@ -13,9 +13,9 @@
 const btnAdd = document.querySelector('#add');
 
 // WHEN someone CLICKS on the BUTTON
-btnAdd.addEventListener('click', () => {
+btnAdd.addEventListener('click', (e) => {
 	// DO this
-	console.log("oh, nice");
+	console.log("oh, nice", e.target);
 
 	// GET reference to ALL `li` elements and their LENGTH
 	const liCount = document.querySelectorAll('li').length;
@@ -37,20 +37,23 @@ btnAdd.addEventListener('click', () => {
 	*/
 });
 
-// för varje `li`
-document.querySelectorAll('li').forEach(liEl => {
-
-	// lägg till en click-eventlyssnare som loggar något till konsolen
-	liEl.addEventListener('click', (e) => {
-		console.log("yey someone clicked on me", e.target);
-
-		// if target has class `completed`, remove it
-		// if target DOES NOT have class `completed`, add it
-		e.target.classList.toggle("completed");
-	});
-});
-
 // lyssna efter klick på hela listan
 document.querySelector('ul').addEventListener('click', (e) => {
-	console.log("hello, i am Saman, you clicked me", e.target);
+	console.log("hello, i am Saman, you clicked me", e);
+
+	// OM tagName är LI, GÖR någonting
+	// (annars gör ingenting)
+	if (e.target.tagName === "LI") {
+		e.target.classList.toggle("completed");
+
+		// STOP event from bubbling up (propagate)
+		// e.stopPropagation();
+	}
 });
+
+/*
+// lyssna efter klick på body
+document.querySelector('body').addEventListener('click', (e) => {
+	console.log("hello i am body, someone clicked me or my children");
+});
+*/
