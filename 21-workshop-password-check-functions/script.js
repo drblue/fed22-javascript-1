@@ -31,34 +31,33 @@ const specialChars = [
 	"@", "$", "%", "*", "^", "<", ">", "?", "!", "(", ")", "[", "]", "{", "}", "'"
 ];
 
-let password = prompt("Please enter password to check:");
-// password = "password"; // inte giltigt
-// password = "p@$swo"; // giltigt
-// password = "pa$sword"; // giltigt
-// password = "p@ssw%rd"; // giltigt
-// password = "pa$$word"; // giltigt
-// password = "secretpassword"; // inte giltigt
-// password = "secret-password"; // giltigt
-// password = "such-password-much-secure-very-long"; // giltigt
+const countSpecialChars = (pass) => {
+	let specialCharCount = 0
+
+	// iterate (loop) over each item in specialChars
+	for (let i = 0;  // only executed once, at the beginning of the loop
+		i < specialChars.length;  // should we continue another round?
+		i++  // AFTER each round, increase i by 1
+	) {
+		const specialChar = specialChars[i]
+		// console.log(`At index ${i}, does '${pass}' contain '${specialChar}'?`, pass.includes(specialChar));
+
+		if (pass.includes(specialChar)) {
+			specialCharCount++
+		}
+	}
+
+	return specialCharCount;
+}
+
+let password = prompt("Please enter password to check:");    // "p@$$word"
 
 console.log(`🕵🏻 Checking password '${password}'`);
 
-let specialCharCount = 0
+// call `countSpecialChars()`, pass in the value in `password` and save the return value in `nbrOfSpecialChars`
+const nbrOfSpecialChars = countSpecialChars(password);  // countSpecialChars("p@$$word")    =>    2
 
-// iterate (loop) over each item in specialChars
-for (let i = 0;  // only executed once, at the beginning of the loop
-	i < specialChars.length;  // should we continue another round?
-	i++  // AFTER each round, increase i by 1
-) {
-	const specialChar = specialChars[i]
-	console.log(`At index ${i}, does password contain '${specialChar}'?`, password.includes(specialChar));
-
-	if (password.includes(specialChar)) {
-		specialCharCount++
-	}
-}
-
-console.log("Loop is done, found:", specialCharCount);
+console.log("Loop is done, found:", nbrOfSpecialChars);
 
 if (password.length >= 16) {
 	console.log("- ✅ Great! That's a long password!");
@@ -66,10 +65,10 @@ if (password.length >= 16) {
 } else if (password.length >= 12 && password.includes('-')) {
 	console.log("- ✅ Great! That's a pretty good password!");
 
-} else if (password.length >= 8 && specialCharCount) {
+} else if (password.length >= 8 && nbrOfSpecialChars) {
 	console.log("- ✅ Great! Such password, much secure, very hard to crack!");
 
-} else if (password.length >= 6 && specialCharCount >= 2) {
+} else if (password.length >= 6 && nbrOfSpecialChars >= 2) {
 	console.log("- ✅ Great! Such password, much secure, VERY hard to crack!");
 
 } else {
