@@ -2,3 +2,14 @@
 	font-style: italic;
 	text-decoration: line-through;
 }
+
+ul {
+	background-color: #deb887;
+	padding: 1rem 2rem;
+}
+
+li {
+	background-color: bisque;
+	margin: 1rem 0;
+	padding: 0.5rem;
+}
