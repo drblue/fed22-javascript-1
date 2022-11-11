@@ -14,4 +14,8 @@ const clockId = setInterval( () => {
 
 	// output current time to `#clock`-element
 	clockEl.innerText = now.toLocaleTimeString();
+
+	if (now.getDay() === 5 && now.getHours() >= 15) {
+		clockEl.innerText += ' 🥳';
+	}
 }, 1000);
