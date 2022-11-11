@@ -1,0 +1,14 @@
+#app {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.hide {
+	display: none;
+}
+
+#ghost {
+	font-size: 10em;
+}
