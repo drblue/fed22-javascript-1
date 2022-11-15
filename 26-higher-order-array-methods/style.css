@@ -1,10 +1,2 @@
 #app {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-}
-
-#clock {
-	font-size: 6em;
 }
