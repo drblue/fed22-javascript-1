@@ -142,12 +142,13 @@ const students = [
 	},
 ];
 
+// Array sorting alphabetically regardless of casing of value on an object-attribute
 students.sort( (a, b) => {
-	if (a.name < b.name) {
+	if (a.name.toUpperCase() < b.name.toUpperCase()) {
 		return -1;
 	}
 
-	if (a.name > b.name) {
+	if (a.name.toUpperCase() > b.name.toUpperCase()) {
 		return 1;
 	}
 
