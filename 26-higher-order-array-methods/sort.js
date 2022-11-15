@@ -71,11 +71,12 @@ numbers.sort( (a, b) => a - b );
 console.log("Numbers in proper! order:", numbers);
 */
 
+/*
 // We can even sort objects based on a property
 const students = [
 	{
 		name: "Johan",
-		points: -1337,
+		points: 1337,
 	},
 	{
 		name: "Saman",
@@ -116,3 +117,41 @@ students.sort( (a, b) => {
 } );
 
 console.log("students after sort:", students);
+*/
+
+const students = [
+	{
+		name: "johan",
+		points: 1337,
+	},
+	{
+		name: "Saman",
+		points: 3,
+	},
+	{
+		name: "alicia",
+		points: 42,
+	},
+	{
+		name: "Elliot",
+		points: 88,
+	},
+	{
+		name: "Maja",
+		points: 35,
+	},
+];
+
+students.sort( (a, b) => {
+	if (a.name < b.name) {
+		return -1;
+	}
+
+	if (a.name > b.name) {
+		return 1;
+	}
+
+	return 0;
+});
+
+console.log("Student-objects sorted by name:", students);
