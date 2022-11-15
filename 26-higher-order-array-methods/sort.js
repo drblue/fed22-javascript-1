@@ -36,6 +36,7 @@ console.log("Numbers in chaos:", numbers);
 // console.log("Numbers in proper? order:", numbers);
 
 // sort numbers NUMERICALLY
+/*
 numbers.sort( (a, b) => {    // a = 3, b = 9
 	// shorthand
 	return (a - b);
@@ -58,5 +59,14 @@ numbers.sort( (a, b) => {    // a = 3, b = 9
 	console.log("a is equal to b");
 	return 0;
 } );
+*/
+
+// EVEN SHORTER NUMBER SORTING 🤯
+numbers.sort( (a, b) => a - b );
+
+// same as this
+// numbers.sort( (a, b) => {
+// 	return a - b;
+// });
 
 console.log("Numbers in proper! order:", numbers);
