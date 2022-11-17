@@ -73,8 +73,8 @@ todosEl.addEventListener('click', (e) => {
 		console.log("found clicked todo", clickedTodo);
 
 		// change completed-status of found todo
-		clickedTodo.completed = true;
-		console.log("changed todo completed to true");
+		clickedTodo.completed = !clickedTodo.completed;
+		console.log("toggling todo completed");
 
 		// render updated todos
 		renderTodos();
