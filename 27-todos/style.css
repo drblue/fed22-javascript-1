@@ -6,3 +6,8 @@
 	text-decoration: line-through;
 	color: #888;
 }
+
+#todos {
+	background-color: #555;
+	padding: 2rem;
+}

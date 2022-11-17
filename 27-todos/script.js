@@ -39,6 +39,8 @@ const todos = [
 
 // Render todos to DOM
 const renderTodos = () => {
+	console.log("rendering todos...");
+
 	todosEl.innerHTML = '';
 	todos.forEach(todo => {
 		if (todo.completed) {
@@ -54,6 +56,31 @@ const renderTodos = () => {
 }
 renderTodos();
 
+// Listen for click-events on `#todos` (the `<ul>`)
+todosEl.addEventListener('click', (e) => {
+	// console.log("You clicked on either the whole list, or on a listitem", e.target);
+
+	// check if user clicked on a LI element
+	if (e.target.tagName === "LI") {
+		// console.log("YAY you clicked on a todo (LI)", e.target);
+		// console.log("The clicked todo's title is:", e.target.innerText);
+		const clickedTodoTitle = e.target.innerText;
+
+		// search todos for the todo with the title clickedTodoTitle
+		const clickedTodo = todos.find( (todo) => {
+			return todo.title === clickedTodoTitle;
+		} );
+		console.log("found clicked todo", clickedTodo);
+
+		// change completed-status of found todo
+		clickedTodo.completed = true;
+		console.log("changed todo completed to true");
+
+		// render updated todos
+		renderTodos();
+	}
+});
+
 // Create a new todo when form is submitted
 newTodoFormEl.addEventListener('submit', (e) => {
 	// Prevent form from being submitted (to the server)
@@ -64,6 +91,7 @@ newTodoFormEl.addEventListener('submit', (e) => {
 		title: newTodoFormEl.newTodo.value,
 		completed: false,
 	});
+	console.log("created new todo...");
 
 	// Render new todo to DOM
 	renderTodos();
