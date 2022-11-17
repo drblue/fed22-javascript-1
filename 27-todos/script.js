@@ -37,17 +37,26 @@ const todos = [
 	},
 ];
 
-/*
-// troligen lite effektivare, men är samtidigt beroende av en variabel
-// från scope:t ovanför
-let str = '';
-todos.forEach(todo => {
-	str += `<li class="list-group-item">${todo.title}</li>`;
-});
-todosEl.innerHTML = str;
-*/
+// Render todos to DOM
+const renderTodos = () => {
+	todosEl.innerHTML = '';
+	todos.forEach(todo => {
+		todosEl.innerHTML += `<li class="list-group-item">${todo.title}</li>`;
+	});
+}
+renderTodos();
 
-// todosEl.innerHTML = '';
-todos.forEach(todo => {
-	todosEl.innerHTML += `<li class="list-group-item">${todo.title}</li>`;
+// Create a new todo when form is submitted
+newTodoFormEl.addEventListener('submit', (e) => {
+	// Prevent form from being submitted (to the server)
+	e.preventDefault();
+
+	// Create and push new todo into array
+	todos.push({
+		title: newTodoFormEl.newTodo.value,
+		completed: false,
+	});
+
+	// Render new todo to DOM
+	renderTodos();
 });
