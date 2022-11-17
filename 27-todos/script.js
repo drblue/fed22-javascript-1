@@ -67,4 +67,20 @@ newTodoFormEl.addEventListener('submit', (e) => {
 
 	// Render new todo to DOM
 	renderTodos();
+
+	// Empty input field
+	// newTodoFormEl.newTodo.value = '';
+
+	// Reset form
+	newTodoFormEl.reset();
 });
+
+/*
+// STOP USER FROM RESETTING FORM 😈
+newTodoFormEl.addEventListener('reset', e => {
+	// YOU NO RESET FORM, FORM RESETS YOU!
+	e.preventDefault();
+
+	alert("YOU NO RESET FORM, FORM RESETS YOU!");
+});
+*/
