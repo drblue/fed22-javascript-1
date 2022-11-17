@@ -41,7 +41,15 @@ const todos = [
 const renderTodos = () => {
 	todosEl.innerHTML = '';
 	todos.forEach(todo => {
-		todosEl.innerHTML += `<li class="list-group-item">${todo.title}</li>`;
+		if (todo.completed) {
+			todosEl.innerHTML += `<li class="list-group-item completed">${todo.title}</li>`;
+		} else {
+			todosEl.innerHTML += `<li class="list-group-item">${todo.title}</li>`;
+		}
+
+		// todosEl.innerHTML += todo.completed
+		// 	? `<li class="list-group-item completed">${todo.title}</li>`
+		// 	: `<li class="list-group-item">${todo.title}</li>`;
 	});
 }
 renderTodos();
