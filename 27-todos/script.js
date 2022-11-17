@@ -36,3 +36,18 @@ const todos = [
 		completed: false,
 	},
 ];
+
+/*
+// troligen lite effektivare, men är samtidigt beroende av en variabel
+// från scope:t ovanför
+let str = '';
+todos.forEach(todo => {
+	str += `<li class="list-group-item">${todo.title}</li>`;
+});
+todosEl.innerHTML = str;
+*/
+
+// todosEl.innerHTML = '';
+todos.forEach(todo => {
+	todosEl.innerHTML += `<li class="list-group-item">${todo.title}</li>`;
+});
