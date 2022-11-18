@@ -22,7 +22,16 @@ const friends = [
 
 // 1. get an array of the names of all friends in year 3
 // save in `year3_names` and console.log it
-
+const year3_names = friends
+	.filter(friend => friend.year === 3)
+	.map(friend => friend.name);
+console.log("Friends in year 3:", year3_names);
 
 // 2. get an array of the names of all male friends in year 5
 // save in `year5_male_names` and console.log it
+const year5_male_names = friends
+	.filter(friend => {
+		return (friend.year === 5 && friend.sex === 'M');
+	})
+	.map(friend => friend.name);
+console.log("Male friends in year 5:", year5_male_names);
