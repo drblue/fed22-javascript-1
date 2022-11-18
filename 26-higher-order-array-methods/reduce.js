@@ -103,3 +103,7 @@ const products = [
 ];
 
 // calculate total stock value
+const total_stock_value = products.reduce((sum, product) => {
+	return sum + product.price * (product.in_stock);
+}, 0);
+console.log(`The total stock value is $ ${total_stock_value}.`);
