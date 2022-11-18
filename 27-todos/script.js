@@ -24,14 +24,17 @@ const newTodoFormEl = document.querySelector('#new-todo-form');
 // list of todos
 const todos = [
 	{
+		id: 1,
 		title: "Learn basic JavaScript",
 		completed: true,
 	},
 	{
-		title: "Learn DOM",
+		id: 2,
+		title: "Learn Array Methods",
 		completed: false,
 	},
 	{
+		id: 3,
 		title: "Take over the world",
 		completed: false,
 	},
@@ -43,11 +46,17 @@ const renderTodos = () => {
 
 	todosEl.innerHTML = '';
 	todos.forEach(todo => {
+		let cssClasses = "list-group-item";
+
 		if (todo.completed) {
-			todosEl.innerHTML += `<li class="list-group-item completed">${todo.title}</li>`;
-		} else {
-			todosEl.innerHTML += `<li class="list-group-item">${todo.title}</li>`;
+			cssClasses += " completed";   // "list-group-item completed"
 		}
+
+		todosEl.innerHTML += `
+			<li class="${cssClasses}" data-todo-id="${todo.id}">
+				${todo.title}
+			</li>
+		`;
 
 		// todosEl.innerHTML += todo.completed
 		// 	? `<li class="list-group-item completed">${todo.title}</li>`
@@ -64,11 +73,14 @@ todosEl.addEventListener('click', (e) => {
 	if (e.target.tagName === "LI") {
 		// console.log("YAY you clicked on a todo (LI)", e.target);
 		// console.log("The clicked todo's title is:", e.target.innerText);
-		const clickedTodoTitle = e.target.innerText;
 
-		// search todos for the todo with the title clickedTodoTitle
+		// get the `data-todo-id` attribute from the LI element
+		const clickedTodoId = e.target.dataset.todoId;     // `data-todo-id`
+		// console.log("You clicked on the listitem for todo with id:", clickedTodoId);
+
+		// search todos for the todo with the id todoId
 		const clickedTodo = todos.find( (todo) => {
-			return todo.title === clickedTodoTitle;
+			return todo.id == clickedTodoId;
 		} );
 		console.log("found clicked todo", clickedTodo);
 
