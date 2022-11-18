@@ -124,6 +124,12 @@ const friends = [
 ];
 
 // calculate average grade for all friends
-
+const average_grade = friends.reduce((sum, friend) => {
+	return sum + friend.grade;
+}, 0) / friends.length;
+console.log("The average grade for all friends is:", average_grade);
 
 // calculate average grade for all girls
+const girls = friends.filter(friend => friend.sex === 'F');
+const average_grade_girls = girls.reduce((sum, friend) => sum + friend.grade, 0) / girls.length;
+console.log("The average grade for all girl-friends is:", average_grade_girls);
