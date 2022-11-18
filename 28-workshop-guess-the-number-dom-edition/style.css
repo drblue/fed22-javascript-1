@@ -1,0 +1,24 @@
+html {
+	font-size: 1.5em;
+}
+
+body {
+	color: #333;
+	font-family: 'Baskervville', monospace;
+	font-weight: 400;
+}
+
+#top {
+	display: flex;
+	justify-content: space-between;
+}
+
+#cheat {
+	position: absolute;
+	bottom: 1rem;
+	right: 1.5rem;
+}
+
+#formGuess label {
+	margin-bottom: 0.25rem;
+}
