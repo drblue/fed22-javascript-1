@@ -98,8 +98,29 @@ newTodoFormEl.addEventListener('submit', (e) => {
 	// Prevent form from being submitted (to the server)
 	e.preventDefault();
 
+	// Extract all todo ids
+	// const todoIds = todos.map(todo => todo.id);    // [1, 2, 3]
+	// const maxTodoId = Math.max(...todoIds);   // 3
+	// const newTodoId = maxTodoId + 1;    // 4
+
+	const maxTodoId = todos.reduce((maxId, todo) => {
+		return Math.max(todo.id, maxId);
+
+		// return (todo.id > maxId)
+		// 	? todo.id
+		// 	: maxId;
+
+		// if (todo.id > maxId) {
+		// 	return todo.id;
+		// }
+
+		// return maxId;
+	}, 0);
+	const newTodoId = maxTodoId + 1;    // 4
+
 	// Create and push new todo into array
 	todos.push({
+		id: newTodoId,
 		title: newTodoFormEl.newTodo.value,
 		completed: false,
 	});
