@@ -30,6 +30,7 @@
 const cheatEl = document.querySelector('#cheat');
 const formGuessEl = document.querySelector('#formGuess');
 const inputGuessEl = document.querySelector('#inputGuess');
+const btnGetLuckyEl = formGuessEl.querySelector('button[type="submit"]');
 const guessesEl = document.querySelector('#guesses');
 const turnoutEl = document.querySelector('#turnout');
 
@@ -67,15 +68,18 @@ formGuessEl.addEventListener('submit', e => {
 	// Check if guess was correct
 	if (guessedNumber === correctNumber) {
 		// YAY
-		turnoutEl.innerText = `${guessedNumber} is correct! 🥳`
+		turnoutEl.innerText = `${guessedNumber} is correct! 🥳`;
+
+		// Stop user from making more guesses (as their guess was correct 🙄)
+		btnGetLuckyEl.setAttribute('disabled', 'disabled');
 
 	} else if (guessedNumber < correctNumber) {
 		// 😔
-		turnoutEl.innerText = `${guessedNumber} is TOO LOW!`
+		turnoutEl.innerText = `${guessedNumber} is TOO LOW!`;
 
 	} else if (guessedNumber > correctNumber) {
 		// Also 😔
-		turnoutEl.innerText = `${guessedNumber} is TOO HIGH!`
+		turnoutEl.innerText = `${guessedNumber} is TOO HIGH!`;
 
 	}
 
@@ -102,4 +106,7 @@ formGuessEl.addEventListener('reset', () => {
 
 	// Empty previous result
 	turnoutEl.innerText = "";
+
+	// Enable submit-button again
+	btnGetLuckyEl.removeAttribute('disabled');
 });
