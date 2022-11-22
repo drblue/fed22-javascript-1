@@ -78,6 +78,12 @@ formGuessEl.addEventListener('submit', e => {
 		turnoutEl.innerText = `${guessedNumber} is TOO HIGH!`
 
 	}
+
+	// Empty previous guess
+	inputGuessEl.value = "";
+
+	// Focus on input field
+	inputGuessEl.focus();
 });
 
 // Listen for reset/"New game"
