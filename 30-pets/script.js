@@ -37,3 +37,27 @@ const getJSON = (url, callback) => {
 	console.log("Request sent!");
 }
 
+
+// Get cattos 🐱
+getJSON('data/cats.json', (err, cats) => {
+	if (err) {
+		alert("Could not get list of cats! Error was: " + err);
+		return;
+	}
+
+	// Got cats!
+	console.log("Got list of cats:", cats);
+
+	// Get doggos 🐶
+	getJSON('data/dogs.json', (err, dogs) => {
+		// Got woofs!
+		console.log("Got list of dogs:", dogs);
+
+		// Get flying projectiles 🦜🚀
+		getJSON('data/birds.json', (err, birds) => {
+			// Got birds!
+			console.log("Got list of birds", birds);
+
+		})
+	})
+});
