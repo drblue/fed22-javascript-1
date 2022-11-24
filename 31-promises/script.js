@@ -3,7 +3,7 @@
  *
  */
 
-let teacherIsNice = true;
+let teacherIsNice = false;
 
 const willWeGetTheAnswersToTheExam = () => {
 	return new Promise( (resolve, reject) => {
@@ -12,10 +12,11 @@ const willWeGetTheAnswersToTheExam = () => {
 		setTimeout(() => {
 			if (teacherIsNice) {
 				// resolve promise
-				resolve();
+				const data = [42, 1337, 1, 13];
+				resolve(data);
 			} else {
 				// reject promise
-				reject();
+				reject("YOU NO ANSWERS GET");
 			}
 		}, 2000);
 	} );
@@ -23,14 +24,14 @@ const willWeGetTheAnswersToTheExam = () => {
 
 // Get promise of answers
 willWeGetTheAnswersToTheExam()
-	.then( () => {
+	.then( (data) => {
 		// Yay promise was fulfilled (a.k.a. resolved)
-		console.log("Yay teacher is nice");
+		console.log("Yay teacher is nice", data);
 		alert("🥳 Promise has been fulfilled! YAY!");
 	} )
-	.catch( () => {
+	.catch( (err) => {
 		// Noooo, promise was broken (a.k.a. rejected)
-		console.log("BAD TEACH 😢");
+		console.log("BAD TEACH 😢", err);
 		alert("😔 YOU ALWAYS MAKE PROMISES BUT NEVER HOLD THEM!");
 	} );
 
