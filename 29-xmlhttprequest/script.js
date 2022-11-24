@@ -1,6 +1,10 @@
 /**
  * XMLHttpRequest
  *
+ * MINI-WORKSHOP: Skriv om getUsers till getJSON och lägg till att den kan
+ * hämta vilken som helst och ÄNDÅ ta emot en callback som får både om något
+ * går fel OCH datan från om requesten lyckas.
+ *
  */
 
 const getUsers = (callback) => {
