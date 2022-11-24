@@ -20,11 +20,14 @@ const getUsers = (callback) => {
 				const data = JSON.parse(request.responseText);
 
 				// invoke(call) callback
-				callback( data );
+				callback( undefined, data );
 
 			} else {
 				// Something went wrong :'(
 				console.log("ERROR ERROR DANGER WILL ROBINSON!");
+
+				// invoke(call) callback
+				callback( "Could not get data" );
 			}
 		}
 	});
@@ -39,26 +42,19 @@ const getUsers = (callback) => {
 }
 
 // Get users and output their names to DOM
-getUsers( (users) => {
+getUsers( (err, users) => {
 	console.log("Hello, I'm going to output users to DOM");
 
-	// Loop over all users
-	users.forEach(user => {
-		// Append a listitem for each user
-		document.querySelector('#users').innerHTML += `<li>${user.name}</li>`;
-	});
+	if (err) {
+		// something went wrong
+		alert( err );
+
+	} else {
+		// Loop over all users
+		users.forEach(user => {
+			// Append a listitem for each user
+			document.querySelector('#users').innerHTML += `<li>${user.name}</li>`;
+		});
+
+	}
 } );
-
-// Get users and console.log their names
-getUsers( (users) => {
-	console.log("Hello, I'm going to console.log the names");
-
-	// Loop over all users
-	users.forEach(user => {
-		// Console.log their name
-		console.log(user.name);
-	});
-} );
-
-// Done?
-console.log("All requests sent!");
