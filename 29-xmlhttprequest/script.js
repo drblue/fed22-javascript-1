@@ -7,7 +7,7 @@
  *
  */
 
-const getUsers = (callback) => {
+const getJSON = (url, callback) => {
 	// Create a new XML Http Request
 	const request = new XMLHttpRequest();
 
@@ -36,8 +36,8 @@ const getUsers = (callback) => {
 		}
 	});
 
-	// Set request to GET data from 'https://jsonplaceholder.typicode.com/users'
-	request.open('GET', 'https://jsonplaceholder.typicode.com/users');
+	// Set request to GET data
+	request.open('GET', url);
 
 	// Send the request
 	request.send();
@@ -46,7 +46,7 @@ const getUsers = (callback) => {
 }
 
 // Get users and output their names to DOM
-getUsers( (err, users) => {
+getJSON( 'https://jsonplaceholder.typicode.com/users', (err, users) => {
 	console.log("Hello, I'm going to output users to DOM");
 
 	if (err) {
