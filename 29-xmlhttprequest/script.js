@@ -60,5 +60,25 @@ getJSON( 'https://jsonplaceholder.typicode.com/users', (err, users) => {
 			document.querySelector('#users').innerHTML += `<li>${user.name}</li>`;
 		});
 
+		// NOW, get all posts
+
+	}
+} );
+
+// Get posts and output their titles to DOM
+getJSON( 'https://jsonplaceholder.typicode.com/posts', (err, posts) => {
+	console.log("Hello, I'm going to output posts to DOM");
+
+	if (err) {
+		// something went wrong
+		alert( err );
+
+	} else {
+		// Loop over all posts
+		posts.forEach(post => {
+			// Append a listitem for each post
+			document.querySelector('#posts').innerHTML += `<li>${post.title}</li>`;
+		});
+
 	}
 } );
