@@ -52,7 +52,7 @@ const getJSON = (url) => {
 					const data = JSON.parse(request.responseText);
 					setTimeout(() => { // fake slow api
 						resolve(data);  // resolve promise and pass along the data
-					}, 3000);
+					}, 1000);
 
 				} else {
 					reject(`${request.responseURL} returned ${request.status}`);  // reject promise and pass along URL + HTTP status code
@@ -65,7 +65,7 @@ const getJSON = (url) => {
 	} );
 }
 
-
+/*
 console.log("Getting data...");
 // Fetch all data in serie
 getJSON('data/cats.json')
@@ -86,6 +86,7 @@ getJSON('data/cats.json')
 	.catch(err => {
 		console.error("Something went wrong fetching data! Reason:", err);
 	});
+*/
 
 /*
 // Fetch all data in parallel
@@ -104,3 +105,25 @@ getJSON('data/birds.json')
 		console.log("Got birds", birds);
 	});
 */
+
+// Fetch `pets.json`, and then, for each file in `pets`, get that file
+getJSON('data/pets.json')
+	.then(pets => {
+		console.log("Pets:", pets);
+
+		// For each file in `pets`, get that file
+		pets.forEach(pet => {
+			console.log("Pet:", pet);
+
+			// Get that file
+			getJSON(pet.url)
+				.then(data => {
+					console.log("Got pet data:", data);
+
+				})
+		});
+
+	})
+	.catch(err => {
+		console.log("Could not get data, reason:", err);
+	});
