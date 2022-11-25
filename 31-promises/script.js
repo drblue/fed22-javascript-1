@@ -44,15 +44,18 @@ const getJSON = (url) => {
 	return new Promise( (resolve, reject) => {
 		// Get the data we promised
 		const request = new XMLHttpRequest();
+		console.log("Starting request for:", url);
 
 		request.addEventListener('readystatechange', () => {
 			if (request.readyState === 4) {
 				if (request.status === 200) {
 					const data = JSON.parse(request.responseText);
-					resolve(data);  // resolve promise and pass along the data
+					setTimeout(() => { // fake slow api
+						resolve(data);  // resolve promise and pass along the data
+					}, 3000);
 
 				} else {
-					reject(`Could not get data, response status: ${request.status}`);  // reject promise and pass along reason
+					reject(`${request.responseURL} returned ${request.status}`);  // reject promise and pass along URL + HTTP status code
 				}
 			}
 		});
@@ -62,20 +65,42 @@ const getJSON = (url) => {
 	} );
 }
 
+
 console.log("Getting data...");
+// Fetch all data in serie
 getJSON('data/cats.json')
 	.then(cats => {
 		console.log("Got cats?", cats);
 
-		getJSON('data/dogs.json')
-			.then(dogs => {
-				console.log("Got dogs?", dogs);
-			})
-			.catch(err => {
-				console.log("No doggos found, reason:", err);
-			});
+		return getJSON('data/dogs.json');
+	})
+ 	.then(dogs => {
+		console.log("Got dogs?", dogs);
+
+		return getJSON('data/birds.json');
+	})
+	.then(birds => {
+		console.log("Got birds?", birds);
 
 	})
 	.catch(err => {
-		console.error("NO CATS 4 U! Reason:", err);
+		console.error("Something went wrong fetching data! Reason:", err);
 	});
+
+/*
+// Fetch all data in parallel
+getJSON('data/cats.json')
+	.then(cats => {
+		console.log("Got cats", cats);
+	});
+
+getJSON('data/dogs.json')
+	.then(dogs => {
+		console.log("Got dogs", dogs);
+	});
+
+getJSON('data/birds.json')
+	.then(birds => {
+		console.log("Got birds", birds);
+	});
+*/
