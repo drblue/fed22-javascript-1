@@ -4,7 +4,7 @@
  */
 
 /*
-fetch('data/cats.json')
+fetch('data/dogs.json')
 	.then(response => {
 		if (!response.ok) {
 			throw new Error("Response was not OK!");
@@ -19,3 +19,26 @@ fetch('data/cats.json')
 		console.log("Something blew up 😢:", err);
 	});
 */
+
+const getJSON = async (url) => {
+	// fetch url
+	const response = await fetch(url);
+
+	// check if response was ok
+	if (!response.ok) {
+		throw new Error("Response was not OK!");
+	}
+
+	// parse from json
+	const data = await response.json();
+
+	// profit 💰
+	return data;
+}
+
+const res = getJSON('data/dogs.json')
+	.then(data => {
+		console.log("Data:", data);
+	});
+
+console.log("res:", res);
