@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>36-weather-app</title>
+
+	<!-- Bootstrap 5.2 -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+	<!-- Styles -->
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-dark text-white">
+	<div id="app" class="container">
+
+		<div id="search-wrapper">
+			<form id="search-form">
+				<div class="input-group">
+					<input type="text" id="query" class="form-control" placeholder="Enter city to search for" aria-label="City" aria-details="Search for city to show current weather for.">
+					<button type="submit" class="btn btn-success">🔍</button>
+				</div>
+			</form>
+		</div>
+
+		<div id="forecast" class="card">
+			<img src="assets/images/forecast-banner.png" class="card-img-top">
+			<div class="card-body">
+				<h5 class="card-title" id="location">
+					<span id="city">City</span>,
+					<span id="country">Country</span>
+				</h5>
+				<p class="temp">
+					<span id="temperature">300</span>
+					&deg;K
+				</p>
+				<p class="humidity">
+					<span id="humidity">100</span>
+					&percnt; humidity
+				</p>
+				<p class="wind">
+					<span id="windspeed">1337</span>
+					mm/s
+				</p>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Script -->
+	<script src="assets/js/app.js"></script>
+</body>
+</html>
