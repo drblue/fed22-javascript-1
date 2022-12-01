@@ -21,9 +21,27 @@ const renderCurrentWeather = data => {
 		`<li><img src="http://openweathermap.org/img/wn/${condition.icon}@2x.png" title="${condition.description}"></li>`
 	);
 
+	// determine if it's daytime or nighttime
+	const now = Math.round(Date.now() / 1000);
+
+	// same as below, but prettier 🤩
+	const banner = (now > data.sys.sunrise && now < data.sys.sunset)
+		? 'assets/images/day.svg'
+		: 'assets/images/night.svg';
+
+	/*
+	// same as above, but not as pretty
+	let banner;
+	if (now > data.sys.sunrise && now < data.sys.sunset) {
+		banner = 'assets/images/day.svg';
+	} else {
+		banner = 'assets/images/night.svg';
+	}
+	*/
+
 	forecastEl.innerHTML = `
 		<div class="card">
-			<img src="assets/images/forecast-banner.png" class="card-img-top">
+			<img src="${banner}" class="card-img-top">
 			<div class="card-body">
 				<h5 class="card-title" id="location">
 					<span id="city">${data.name}</span>,
