@@ -3,20 +3,14 @@
  *
  */
 
-const renderNotice = msg => {
+const renderAlert = (msg, severity = 'info') => {
 	document.querySelector('#forecast').innerHTML =
-		`<div class="alert alert-info">${msg}</div>`;
+		`<div class="alert alert-${severity}">${msg}</div>`;
 }
 
-const renderWarning = msg => {
-	document.querySelector('#forecast').innerHTML =
-		`<div class="alert alert-warning">${msg}</div>`;
-}
-
-const renderError = msg => {
-	document.querySelector('#forecast').innerHTML =
-		`<div class="alert alert-danger">${msg}</div>`;
-}
+const renderNotice = msg => renderAlert(msg, 'info');
+const renderWarning = msg => renderAlert(msg, 'warning');
+const renderError = msg => renderAlert(msg, 'danger');
 
 const renderCurrentWeather = data => {
 	document.querySelector('#forecast').innerHTML = `
@@ -62,7 +56,6 @@ document.querySelector('#search-form').addEventListener('submit', async e => {
 		// render current weather conditions
 		renderCurrentWeather(data);
 	} catch (e) {
-		// *vissla och låtsas som ingenting?*
 		renderWarning("That does not look like a city.");
 	}
 
