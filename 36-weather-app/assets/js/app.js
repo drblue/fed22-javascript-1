@@ -3,8 +3,11 @@
  *
  */
 
+const forecastEl = document.querySelector('#forecast');
+const spinnerEl = document.querySelector('#spinner');
+
 const renderAlert = (msg, severity = 'info') => {
-	document.querySelector('#forecast').innerHTML =
+	forecastEl.innerHTML =
 		`<div class="alert alert-${severity}">${msg}</div>`;
 }
 
@@ -13,7 +16,7 @@ const renderWarning = msg => renderAlert(msg, 'warning');
 const renderError = msg => renderAlert(msg, 'danger');
 
 const renderCurrentWeather = data => {
-	document.querySelector('#forecast').innerHTML = `
+	forecastEl.innerHTML = `
 		<div class="card">
 			<img src="assets/images/forecast-banner.png" class="card-img-top">
 			<div class="card-body">
@@ -48,6 +51,10 @@ document.querySelector('#search-form').addEventListener('submit', async e => {
 		return;
 	}
 
+	// hide forecast and show spinner
+	forecastEl.classList.add('hide');
+	spinnerEl.classList.remove('hide');
+
 	// do search
 	console.log(`Searching for city "${city}"`);
 	try {
@@ -59,4 +66,7 @@ document.querySelector('#search-form').addEventListener('submit', async e => {
 		renderWarning("That does not look like a city.");
 	}
 
+	// hide spinner and show forecast again
+	spinnerEl.classList.add('hide');
+	forecastEl.classList.remove('hide');
 });

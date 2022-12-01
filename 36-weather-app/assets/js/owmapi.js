@@ -12,6 +12,9 @@ const getCurrentWeather = async (city) => {
 	// get weather for city from OpenWeatherMap API
 	const response = await fetch(`${BASE_URL}/weather?q=${city}&units=metric&appid=${API_KEY}`);
 
+	// fake a slow api
+	FAKE_SLOW_API && await new Promise(r => setTimeout(r, FAKE_SLOW_API_DELAY));
+
 	// check if response is ok
 	if (!response.ok) {
 		throw new Error(`${response.status} ${response.statusText}`);
@@ -19,9 +22,6 @@ const getCurrentWeather = async (city) => {
 
 	// convert response from JSON
 	const data = await response.json();
-
-	// fake a slow api
-	FAKE_SLOW_API && await new Promise(r => setTimeout(r, FAKE_SLOW_API_DELAY));
 
 	// return current weather
 	return data;
