@@ -16,6 +16,11 @@ const renderWarning = msg => renderAlert(msg, 'warning');
 const renderError = msg => renderAlert(msg, 'danger');
 
 const renderCurrentWeather = data => {
+	// transform weather conditions to listitems
+	const conditions = data.weather.map(condition =>
+		`<li><img src="http://openweathermap.org/img/wn/${condition.icon}@2x.png" title="${condition.description}"></li>`
+	);
+
 	forecastEl.innerHTML = `
 		<div class="card">
 			<img src="assets/images/forecast-banner.png" class="card-img-top">
@@ -36,6 +41,10 @@ const renderCurrentWeather = data => {
 					<span id="windspeed">${data.wind.speed}</span>
 					m/s
 				</p>
+
+				<ul class="conditions">
+					${conditions.join('')}
+				</ul>
 			</div>
 		</div>
 	`;
