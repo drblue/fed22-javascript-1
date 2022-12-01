@@ -3,6 +3,21 @@
  *
  */
 
+const renderNotice = msg => {
+	document.querySelector('#forecast').innerHTML =
+		`<div class="alert alert-info">${msg}</div>`;
+}
+
+const renderWarning = msg => {
+	document.querySelector('#forecast').innerHTML =
+		`<div class="alert alert-warning">${msg}</div>`;
+}
+
+const renderError = msg => {
+	document.querySelector('#forecast').innerHTML =
+		`<div class="alert alert-danger">${msg}</div>`;
+}
+
 const renderCurrentWeather = data => {
 	document.querySelector('#forecast').innerHTML = `
 		<div class="card">
@@ -35,14 +50,20 @@ document.querySelector('#search-form').addEventListener('submit', async e => {
 	const city = e.target.query.value.trim();
 
 	if (city.length < 3) {
-		alert("Please enter at least 3 chars");
+		renderNotice("Please enter at least 3 chars");
 		return;
 	}
 
 	// do search
 	console.log(`Searching for city "${city}"`);
-	const data = await getCurrentWeather(city);
+	try {
+		const data = await getCurrentWeather(city);
 
-	// render current weather conditions
-	renderCurrentWeather(data);
+		// render current weather conditions
+		renderCurrentWeather(data);
+	} catch (e) {
+		// *vissla och låtsas som ingenting?*
+		renderWarning("That does not look like a city.");
+	}
+
 });
