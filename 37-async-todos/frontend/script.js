@@ -24,6 +24,23 @@ const newTodoFormEl = document.querySelector('#new-todo-form');
 // list of todos
 let todos = [];
 
+const createNewTodo = async (newTodo) => {
+	const res = await fetch('http://localhost:3001/todos', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(newTodo),
+	});
+
+	// Check that everything went ok
+	if (!res.ok) {
+		throw new Error(`Could not create todo, reason: ${res.status} ${res.statusText}`);
+	}
+
+	return await res.json();
+}
+
 /**
  * Get todos from server, update `todos` array and render todos.
  */
@@ -111,22 +128,7 @@ newTodoFormEl.addEventListener('submit', async (e) => {
 	}
 
 	// POST todo to server
-	const res = await fetch('http://localhost:3001/todos', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify(newTodo),
-	});
-
-	// Check that everything went ok
-	if (!res.ok) {
-		alert("Could not create todo! 🥺");
-		console.log(res);
-		return;
-	}
-	const data = await res.json();
-	console.log("The response data was:", data);
+	await createNewTodo(newTodo);
 
 	// Get the new list of todos from the server
 	getTodos();
