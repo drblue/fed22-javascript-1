@@ -128,7 +128,12 @@ newTodoFormEl.addEventListener('submit', async (e) => {
 	}
 
 	// POST todo to server
-	await createNewTodo(newTodo);
+	try {
+		await createNewTodo(newTodo);
+	} catch (e) {
+		console.log(e);
+		alert(e);
+	}
 
 	// Get the new list of todos from the server
 	getTodos();
