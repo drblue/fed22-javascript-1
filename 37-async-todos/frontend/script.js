@@ -100,7 +100,7 @@ todosEl.addEventListener('click', (e) => {
 });
 
 // Create a new todo when form is submitted
-newTodoFormEl.addEventListener('submit', (e) => {
+newTodoFormEl.addEventListener('submit', async (e) => {
 	// Prevent form from being submitted (to the server)
 	e.preventDefault();
 
@@ -111,10 +111,25 @@ newTodoFormEl.addEventListener('submit', (e) => {
 	}
 
 	// POST todo to server
+	const res = await fetch('http://localhost:3001/todos', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(newTodo),
+	});
 
 	// Check that everything went ok
+	if (!res.ok) {
+		alert("Could not create todo! 🥺");
+		console.log(res);
+		return;
+	}
+	const data = await res.json();
+	console.log("The response data was:", data);
 
 	// Get the new list of todos from the server
+	getTodos();
 
 	// Reset form
 	newTodoFormEl.reset();

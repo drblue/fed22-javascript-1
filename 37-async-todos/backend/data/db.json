@@ -1,24 +1,54 @@
 {
-	"todos": [
-		{
-			"id": 1,
-			"title": "Learn JavaScript",
-			"completed": true
-		},
-		{
-			"id": 2,
-			"title": "Learn async JavaScript",
-			"completed": true
-		},
-		{
-			"id": 3,
-			"title": "Master async JavaScript",
-			"completed": true
-		},
-		{
-			"id": 4,
-			"title": "Profit 💰",
-			"completed": false
-		}
-	]
+  "todos": [
+    {
+      "id": 1,
+      "title": "Learn JavaScript",
+      "completed": true
+    },
+    {
+      "id": 2,
+      "title": "Learn async JavaScript",
+      "completed": true
+    },
+    {
+      "id": 3,
+      "title": "Master async JavaScript",
+      "completed": true
+    },
+    {
+      "id": 4,
+      "title": "Profit 💰",
+      "completed": false
+    },
+    {
+      "title": "Look ma, a new todo!",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "title": "I'm HANGRY",
+      "completed": false,
+      "id": 6
+    },
+    {
+      "title": "I'm VERY hangry",
+      "completed": false,
+      "id": 7
+    },
+    {
+      "title": "I'm not so hungry anymore",
+      "completed": false,
+      "id": 8
+    },
+    {
+      "title": "OMG THIS IS SO MUCH FUN",
+      "completed": false,
+      "id": 9
+    },
+    {
+      "title": "I'M THE KING (/QUEEN) OF THE WORLD!",
+      "completed": false,
+      "id": 10
+    }
+  ]
 }
