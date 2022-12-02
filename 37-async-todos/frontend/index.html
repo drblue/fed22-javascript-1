@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>37-async-todos</title>
+
+	<!-- Bootstrap 5.2 -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+	<!-- Styles -->
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-dark text-white">
+	<div id="app" class="container my-3">
+		<h1>Async Todos</h1>
+
+		<ul id="todos" class="todos list-group mb-5">
+			<li class="list-group-item">
+				Learn to write better placeholder text
+			</li>
+		</ul>
+
+		<h2 class="mb-3">Create a new Todo</h2>
+		<form id="new-todo-form">
+			<div class="form-group mb-2">
+				<input type="text" id="newTodo" name="title" class="form-control" placeholder="Enter a description of your new todo...">
+			</div>
+
+			<button type="submit" class="btn btn-success">Create</button>
+			<button type="reset" class="btn btn-warning">Reset</button>
+		</form>
+
+	</div>
+
+	<!-- Script -->
+	<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+	"todos": [
+		{
+			"id": 1,
+			"title": "Learn JavaScript",
+			"completed": true
+		},
+		{
+			"id": 2,
+			"title": "Learn async JavaScript",
+			"completed": true
+		},
+		{
+			"id": 3,
+			"title": "Master async JavaScript",
+			"completed": false
+		},
+		{
+			"id": 4,
+			"title": "Profit 💰",
+			"completed": false
+		}
+	]
+}

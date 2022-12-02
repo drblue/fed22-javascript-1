@@ -1,0 +1,11 @@
+{
+  "name": "37-async-todos-backend",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "server": "json-server --watch data/db.json --port 3001 --delay 0"
+  },
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}
