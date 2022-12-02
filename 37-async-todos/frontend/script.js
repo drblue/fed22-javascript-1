@@ -88,18 +88,32 @@ const renderTodos = () => {
 	todosEl.innerHTML = lis.join('');
 }
 
-// Listen for click-events on `#todos` (the `<ul>`)
-todosEl.addEventListener('click', (e) => {
-	// console.log("You clicked on either the whole list, or on a listitem", e.target);
+/**
+ * Update an existing todo on the server.
+ */
+const updateTodo = async (todoId, data) => {
+	const res = await fetch(`http://localhost:3001/todos/${todoId}`, {
+		method: 'PATCH',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(data),
+	});
 
+	// Check that everything went ok
+	if (!res.ok) {
+		throw new Error(`Could not update todo, reason: ${res.status} ${res.statusText}`);
+	}
+
+	return await res.json();
+}
+
+// Listen for click-events on `#todos` (the `<ul>`)
+todosEl.addEventListener('click', async (e) => {
 	// check if user clicked on a LI element
 	if (e.target.tagName === "LI") {
-		// console.log("YAY you clicked on a todo (LI)", e.target);
-		// console.log("The clicked todo's title is:", e.target.innerText);
-
 		// get the `data-todo-id` attribute from the LI element
 		const clickedTodoId = e.target.dataset.todoId;     // `data-todo-id`
-		// console.log("You clicked on the listitem for todo with id:", clickedTodoId);
 
 		// search todos for the todo with the id todoId
 		const clickedTodo = todos.find( (todo) => {
@@ -108,11 +122,14 @@ todosEl.addEventListener('click', (e) => {
 		console.log("found clicked todo", clickedTodo);
 
 		// change completed-status of found todo
-		clickedTodo.completed = !clickedTodo.completed;
+		await updateTodo(clickedTodo.id, {
+			completed: !clickedTodo.completed
+		});
+
 		console.log("toggling todo completed");
 
-		// render updated todos
-		renderTodos();
+		// get updated todos
+		getTodos();
 	}
 });
 
