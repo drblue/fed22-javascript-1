@@ -6,18 +6,25 @@
  *
  * tsc -w script.ts
  */
-var johan = "Johan";
+
+let johan = "Johan";
 johan.toUpperCase();
-var level = 1337;
+
+let level = 1337;
 level = 42;
-var x;
+
+let x: string;
 x = "lol";
 x = "cat";
-var b = false;
-var todos = ["Learn JS", "Learn TS"];
+
+let b = false;
+
+let todos = ["Learn JS", "Learn TS"];
 todos.push("Learn stuff");
 // todos.push(42); // nope
-var names = [];
+
+let names: string[] = [];
 console.log(names);
-var points = [];
+
+let points: number[] = [];
 console.log(points);
