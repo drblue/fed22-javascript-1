@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Learn JavaScript",
+      "completed": true
+    },
+    {
+      "id": 2,
+      "title": "Learn async JavaScript",
+      "completed": true
+    },
+    {
+      "id": 3,
+      "title": "Fun with TypeScript",
+      "completed": false
+    }
+  ]
+}
