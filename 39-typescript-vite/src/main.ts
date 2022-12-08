@@ -1,13 +1,8 @@
+import 'bootstrap/dist/css/bootstrap.css'
 import './style.css'
 
 const todosList = document.querySelector('#todos')
 const newTodoForm = document.querySelector('#new-todo-form')
-
-const getRandomNumber = (max: number = 10) => {
-	return Math.ceil( Math.random() * max )
-}
-const num = getRandomNumber(40)
-console.log("Random number:", num)
 
 newTodoForm?.addEventListener('submit', e => {
 	e.preventDefault()
