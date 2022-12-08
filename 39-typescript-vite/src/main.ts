@@ -4,27 +4,19 @@ import './style.css'
 const todosList = document.querySelector('#todos')!
 const newTodoForm = document.querySelector('#new-todo-form')
 
+type Todo = {
+	title: string,
+	completed: boolean,
+}
+
 // list of todos
-const todos: string[] = []
+const todos: Todo[] = []
 
 // render todos
 const renderTodos = () => {
-	/*
-	// transform todos into a string-array of `<li>` elements
-	const listitems = todos.map(todo => {
-		return `<li class="list-group-item">${todo}</li>`
-	})
-
-	// implode li-array to a single string
-	const output = listitems.join('')
-
-	// replace todosList content
-	todosList.innerHTML = output
-	*/
-
 	// replace todosList content
 	todosList.innerHTML = todos
-		.map(todo => `<li class="list-group-item">${todo}</li>`)
+		.map(todo => `<li class="list-group-item">${todo.title}</li>`)
 		.join('')
 }
 
@@ -39,7 +31,11 @@ newTodoForm?.addEventListener('submit', e => {
 	}
 
 	// push todo into list of todos
-	todos.push(newTodoTitle)
+	const newTodo: Todo = {
+		title: newTodoTitle,
+		completed: false,
+	}
+	todos.push(newTodo)
 
 	// empty input
 	document.querySelector<HTMLInputElement>('#new-todo-title')!.value = ''
