@@ -5,12 +5,29 @@ const todosList = document.querySelector('#todos')!
 const newTodoForm = document.querySelector('#new-todo-form')
 
 type Todo = {
+	id: number,
 	title: string,
 	completed: boolean,
 }
 
 // list of todos
-const todos: Todo[] = []
+const todos: Todo[] = [
+	{
+		id: 1,
+		title: "Learn basic JavaScript",
+		completed: true,
+	},
+	{
+		id: 2,
+		title: "Learn advanced JavaScript",
+		completed: true,
+	},
+	{
+		id: 3,
+		title: "Learn basic TypeScript",
+		completed: false,
+	},
+]
 
 // render todos
 const renderTodos = () => {
