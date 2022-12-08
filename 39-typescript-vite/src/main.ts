@@ -31,17 +31,37 @@ const todos: Todo[] = [
 
 // render todos
 const renderTodos = () => {
-	console.log("todos", todos)
-
 	// replace todosList content
 	todosList.innerHTML = todos
 		.map(todo =>
-			`<li class="list-group-item ${todo.completed ? 'completed' : ''}">
+			`<li class="list-group-item ${todo.completed ? 'completed' : ''}" data-todo-id="${todo.id}">
 				${todo.title}
 			</li>`
 		)
 		.join('')
 }
+
+// listen for click-events on the todo list
+todosList.addEventListener('click', e => {
+	const target = (e.target as HTMLElement)
+
+	// check if click was on a `li` element
+	if (target.tagName === "LI") {
+		// find id of clicked todo
+		const todoId = Number(target.dataset.todoId)
+
+		// find the todo with the id of the clicked todo
+		const foundTodo = todos.find(todo => todo.id === todoId)
+
+		// if we found the todo, toggle its completed status
+		if (foundTodo) {
+			foundTodo.completed = !foundTodo.completed
+		}
+
+		// at last, re-render todo list
+		renderTodos()
+	}
+})
 
 // create a new todo form
 newTodoForm?.addEventListener('submit', e => {
