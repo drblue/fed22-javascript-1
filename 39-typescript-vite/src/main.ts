@@ -31,6 +31,8 @@ const todos: Todo[] = [
 
 // render todos
 const renderTodos = () => {
+	console.log("todos", todos)
+
 	// replace todosList content
 	todosList.innerHTML = todos
 		.map(todo =>
@@ -51,8 +53,13 @@ newTodoForm?.addEventListener('submit', e => {
 		return
 	}
 
+	// find maximum id in the todos-array
+	const todoIds = todos.map(todo => todo.id)   // todoIds = [1, 2, 3]
+	const maxId = Math.max(...todoIds)  // 3
+
 	// push todo into list of todos
 	const newTodo: Todo = {
+		id: maxId + 1,
 		title: newTodoTitle,
 		completed: false,
 	}
