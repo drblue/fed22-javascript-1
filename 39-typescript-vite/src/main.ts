@@ -16,7 +16,11 @@ const todos: Todo[] = []
 const renderTodos = () => {
 	// replace todosList content
 	todosList.innerHTML = todos
-		.map(todo => `<li class="list-group-item">${todo.title}</li>`)
+		.map(todo =>
+			`<li class="list-group-item ${todo.completed ? 'completed' : ''}">
+				${todo.title}
+			</li>`
+		)
 		.join('')
 }
 
