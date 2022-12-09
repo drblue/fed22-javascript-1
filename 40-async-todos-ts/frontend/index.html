@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<head>
+	<meta charset="UTF-8" />
+	<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>40-async-todos-ts</title>
+</head>
+
+<body class="bg-dark text-white">
+	<div id="app" class="container my-3">
+		<h1>Async Todos</h1>
+
+		<ul id="todos" class="todos list-group mb-5"></ul>
+
+		<h2 class="mb-3">Create a new Todo</h2>
+		<form id="new-todo-form">
+			<div class="form-group mb-2">
+				<input type="text" id="newTodo" name="title" class="form-control" placeholder="Enter a description of your new todo..." required>
+			</div>
+
+			<button type="submit" class="btn btn-success">Create</button>
+			<button type="reset" class="btn btn-warning">Reset</button>
+		</form>
+
+	</div>
+
+	<script type="module" src="/src/main.ts"></script>
+</body>
 </html>
