@@ -37,10 +37,24 @@ const getTodos = async () => {
  * Render todos to DOM
  */
 const renderTodos = () => {
+	// Render not completed todos
 	document.querySelector('#todos')!.innerHTML = todos
-		.map(todo => {
-			return `<li>${todo.title}</li>`
-		})
+		.filter(todo => !todo.completed)
+		.map(todo => `
+			<li class="list-group-item">
+				${todo.title}
+			</li>
+		`)
+		.join('')
+
+	// Render completed todos
+	document.querySelector('#completed-todos')!.innerHTML = todos
+		.filter(todo => todo.completed)
+		.map(todo => `
+			<li class="list-group-item">
+				${todo.title}
+			</li>
+		`)
 		.join('')
 }
 
