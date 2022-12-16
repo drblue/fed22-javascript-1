@@ -1,45 +1,10 @@
+import { fetchTodos, createTodo } from './api'
+import { ITodo } from './interfaces'
 import 'bootstrap/dist/css/bootstrap.css'
 import './style.css'
 
-interface ITodo {
-	id?: number,
-	title: string,
-	completed: boolean,
-}
-
 // Local variable containing all the todos from the server
 let todos: ITodo[] = []
-
-/**
- * Post a todo to the server
- */
-const createTodo = async (newTodo: ITodo) => {
-	const res = await fetch('http://localhost:3001/todos', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify(newTodo),
-	})
-
-	if (!res.ok) {
-		throw new Error(`${res.status} ${res.statusText}`)
-	}
-
-	return await res.json() as ITodo
-}
-
-/**
- * Fetch todos from server
- */
-const fetchTodos = async () => {
-	const res = await fetch('http://localhost:3001/todos')
-	if (!res.ok) {
-		throw new Error(`${res.status} ${res.statusText}`)
-	}
-
-	return await res.json() as ITodo[]
-}
 
 /**
  * Get todos from server, update `todos`-array and render todos.
