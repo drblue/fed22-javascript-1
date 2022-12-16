@@ -10,24 +10,11 @@ type Todo = {
 	completed: boolean,
 }
 
-// list of todos
-const todos: Todo[] = [
-	{
-		id: 1,
-		title: "Learn basic JavaScript",
-		completed: true,
-	},
-	{
-		id: 2,
-		title: "Learn advanced JavaScript",
-		completed: true,
-	},
-	{
-		id: 3,
-		title: "Learn basic TypeScript",
-		completed: false,
-	},
-]
+// get json-todos from localStorage
+const json = localStorage.getItem('todos') ?? '[]'
+
+// parse json-todos into an array of Todo-objects
+const todos: Todo[] = JSON.parse(json)
 
 // render todos
 const renderTodos = () => {
@@ -39,6 +26,15 @@ const renderTodos = () => {
 			</li>`
 		)
 		.join('')
+}
+
+// save todos
+const saveTodos = () => {
+	// convert todos-array to JSON
+	const json = JSON.stringify(todos)
+
+	// save JSON to localStorage
+	localStorage.setItem('todos', json)
 }
 
 // listen for click-events on the todo list
@@ -56,6 +52,11 @@ todosList.addEventListener('click', e => {
 		// if we found the todo, toggle its completed status
 		if (foundTodo) {
 			foundTodo.completed = !foundTodo.completed
+
+			/**
+			 * save todos to localStorage
+			 */
+			saveTodos()
 		}
 
 		// at last, re-render todo list
@@ -75,7 +76,7 @@ newTodoForm?.addEventListener('submit', e => {
 
 	// find maximum id in the todos-array
 	const todoIds = todos.map(todo => todo.id)   // todoIds = [1, 2, 3]
-	const maxId = Math.max(...todoIds)  // 3
+	const maxId = Math.max(0, ...todoIds)  // 3
 
 	// push todo into list of todos
 	const newTodo: Todo = {
@@ -84,6 +85,11 @@ newTodoForm?.addEventListener('submit', e => {
 		completed: false,
 	}
 	todos.push(newTodo)
+
+	/**
+	 * save todos to localStorage
+	 */
+	saveTodos()
 
 	// empty input
 	document.querySelector<HTMLInputElement>('#new-todo-title')!.value = ''
